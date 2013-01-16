@@ -6,15 +6,35 @@ body {
     font-family: Ubuntu;
 }
 
-#container {
-    text-align: center;
-    width: 800px;
-    margin: auto;
+a {
+    color: rgb(240,240,240);
+    text-decoration: none;
 }
 
 #status {
     font-size: 80px;
     font-weight: bolder;
-    margin-bottom: 200px;
-    margin-top: 200px;
+    margin: 200px;
+    margin-top: 10%;
+    float: left;
+    max-width: 600px;
+}
+
+#further {
+    margin-top: 40px;
+    font-size: 30px;
+}
+
+#info {
+    min-height: 100px;
+}
+
+#aside {
+    margin-right: 100px;
+    margin-top: 10%;
+    float: right;
+}
+
+#footer {
+    margin-top: 50px;
 }

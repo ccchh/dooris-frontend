@@ -1,21 +1,40 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Dooris @ HUM53</title>
+  <title>Door Information System @ HUM53</title>
   <link rel="stylesheet" href="style.css">
-  <script src="jquery-1.9.0.min.js"></script>
-  <script type="text/javascript" src="dooris.js"></script>
 </head>
 <body>
-  <div id="container">
+  <div id="basicMap"></div>
+
+  <div id="status">Unknown<br /><span style="font-size:10px">Please enable JavaScript</span></div>
+  <div id="aside">
     <h1>Dooris @ HUM53</h1>
-    <div id="status">Unknown</div>
-    <div id="time">Please enable JavaScript</div>
+    <div id="info">
+      CCC Hansestadt Hamburg e.V. <br>
+      Humboldtstra&szlig;e 53<br>
+      22087 Hamburg <br><br>
+      N 53 &deg; 34.454'<br/>E 10 &deg; 1.472'
+    </div>
+    <div id="nav">
+      <a href="http://www.openstreetmap.org/?minlon=10.0244808197021&minlat=53.5743103027344&maxlon=10.0244817733765&maxlat=53.5743141174316" target="_blank">Map</a> | <a href="http://geofox.hvv.de/jsf/home.seam?destType=1&destName=Humboldtstra%DFe%2053&destRegion=Hamburg" target="_blank">Public Transport</a>
+    </div>
+    <div id="further">
+      You can also contact us via<br />
+      mail@hamburg.ccc.de<br />
+      or join #ccchh @ IRCNet.
 
-    <div id="footer">&copy; 2013 CCC Hansestadt Hamburg e.V. | Don't copysteal, just ask for the code. :)</div>
-
+    </div>
+    <br><br>
+    <span id="time">Please enable JavaScript</span>
+    <div id="footer">
+      <a href="http://hamburg.ccc.de" target="_blank">CCC Hansestadt Hamburg e.V.</a> |
+      <a href="https://github.com/zeidlos/dooris_frontend">Get code @ github.</a>
+    </div>
   </div>
 
 
 </body>
+<script src="jquery-1.9.0.min.js"></script>
+<script type="text/javascript" src="dooris.js"></script>
 </html>

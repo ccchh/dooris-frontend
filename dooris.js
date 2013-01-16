@@ -16,7 +16,7 @@
     console.log('Date: ' + time);
     console.log('Status: ' + status);
     if(status === '0') {
-      $('#status').html("Please come in!").addClass('open');
+      $('#status').html("Please come in, we're open!").addClass('open');
     } else {
       $('#status').html("Sorry, we're closed.").addClass('closed');
     };
