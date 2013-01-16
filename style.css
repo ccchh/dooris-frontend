@@ -1,0 +1,20 @@
+@import url(http://fonts.googleapis.com/css?family=Ubuntu+Mono:400,700);
+
+body {
+    background-color: rgb(42,42,42);
+    color: rgb(240,240,240);
+    font-family: Ubuntu;
+}
+
+#container {
+    text-align: center;
+    width: 600px;
+    margin: auto;
+}
+
+#status {
+    font-size: 80px;
+    font-weight: bolder;
+    margin-bottom: 200px;
+    margin-top: 200px;
+}
