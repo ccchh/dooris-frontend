@@ -1,7 +1,7 @@
 $(document).ready(function() {
   //console.log('Page load successfull!');
   this.loadData = function() {
-    $.get('json.php', function(data) {
+    $.get('http://hamburg.ccc.de/~chris/dooris.json', function(data) {
         var jsonData = JSON.parse(data);
         jsonData['time'] = jsonData['time']*1000;
         //console.log(jsonData);
@@ -22,7 +22,7 @@ $(document).ready(function() {
             $('#status').html("Sorry, we're closed.").addClass('closed');
         };
         $('#time').html("Last updated " + timeGoneBy + " Minutes ago.");
-      });
+      }, "jsonp");
     };
   this.loadData();
   setInterval(this.loadData, 30*1000);
