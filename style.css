@@ -11,13 +11,19 @@ a {
     text-decoration: none;
 }
 
+#content {
+    float: left;
+    max-width: 600px;
+}
+
 #status {
     font-size: 80px;
     font-weight: bolder;
-    margin: 200px;
-    margin-top: 10%;
-    float: left;
-    max-width: 600px;
+    margin: 100px;
+    margin-bottom: 50px;
+}
+#time {
+    margin-left: 100px;
 }
 
 #further {
@@ -31,8 +37,8 @@ a {
 
 #aside {
     margin-right: 100px;
-    margin-top: 10%;
     float: right;
+    margin-top: 100px;
 }
 
 #footer {
