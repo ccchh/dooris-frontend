@@ -8,9 +8,5 @@ curl_setopt ($ch, CURLOPT_RETURNTRANSFER, 1);
 curl_setopt ($ch, CURLOPT_CONNECTTIMEOUT, $timeout);
 $x = curl_exec($ch);
 curl_close($ch);
-
-$door = trim(substr($x, 0, 1));
-$time = trim(substr($x, 1));
-echo($door);
-echo($time);
+echo($x);
 ?>
