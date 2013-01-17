@@ -7,15 +7,12 @@ $(document).ready(function() {
     } else {
       pathname = "dooris.json";
     };
-    $.get(pathname, function(data) {
-      console.log(data);
-      var jsonData = JSON.parse(data);
-      jsonData['time'] = jsonData['time']*1000;
-      console.log(jsonData);
-      //console.log(jsonData['door']);
-      //console.log(jsonData['time']);
-      var status = jsonData['door'];
-      var time = new Date(parseInt(jsonData['time']));
+    $.getJSON(pathname, function(data) {
+      var jsonData = data;
+      jsonData['door']['last_update'] = jsonData['door']['last_update']*1000;
+      console.log(jsonData['door']);
+      var status = jsonData['door']['status'];
+      var time = new Date(parseInt(jsonData['door']['last_update']));
       var timeNow = $.now();
       var timeGoneBy = Math.round(((timeNow - time)/1000)/60);
       //console.log(timeGoneBy);
