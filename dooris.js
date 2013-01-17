@@ -1,5 +1,6 @@
 $(document).ready(function() {
   this.loadData = function() {
+    // Determine if code runs on local machine
     var pathname = window.location['host'];
     if (pathname.toLowerCase().indexOf("localhost") >= 0) {
       pathname = "json.php";
