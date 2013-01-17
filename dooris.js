@@ -22,9 +22,15 @@ $(document).ready(function() {
       //console.log('Date: ' + time);
       //console.log('Status: ' + status);
       if(status === '0') {
-          $('#status').html("Please come in, we're open!").addClass('open');
+        $('#status').html("Please come in, we're open!").addClass('open');
       } else {
+        if (jsonData['router']['dhcp'] > 0) {
+          console.log('More than 0 clients');
+          $('#status').html("We're most likley open. There are " + jsonData['router']['dhcp'] + " DHCP-Clients online.").addClass('dhcp');
+          console.log(jsonData['router']['dhcp']);
+        } else {
           $('#status').html("Sorry, we're closed.").addClass('closed');
+        }
       };
       $('#time').html("Last updated " + timeGoneBy + " Minutes ago.");
     });
