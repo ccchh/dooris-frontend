@@ -25,7 +25,6 @@ $(document).ready(function() {
         strTime += ' days';
       };
     };
-    console.log(strTime);
     return strTime;
   };
 
