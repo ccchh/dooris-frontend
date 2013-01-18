@@ -56,7 +56,7 @@ $(document).ready(function() {
       } else if (status ==='1') {
         // One client is the Freifunk-Router, so the minimum is greater 0.
         if (jsonData['router']['dhcp'] > 1) {
-          $('#status').html("We're most likley open. There are " + jsonData['router']['dhcp'] + " DHCP-Clients online, but the Door appears to be closed.").addClass('dhcp').addClass('open');
+          $('#status').html("There are " + jsonData['router']['dhcp'] + " DHCP Clients online, but the door is closed.").addClass('dhcp');
         } else {
           $('#status').html("Sorry, we're closed.").addClass('closed');
         };
