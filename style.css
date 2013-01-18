@@ -57,6 +57,7 @@ a {
     color: rgb(134, 200, 128);
 }
 
+/* TODO Fix font size for display DHCP Clients. */
 .dhcp {
     color: #ffbb55;
 }
