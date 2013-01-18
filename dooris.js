@@ -1,10 +1,32 @@
 $(document).ready(function() {
 
-  var parseTime = function (time) {
+  var parseTimeDiffrence = function (time) {
     var timeRec = time * 1000;
     var timeNow = $.now();
     var timeGoneBy = Math.round(((timeNow - timeRec)/1000)/60);
     return timeGoneBy;
+  };
+
+  var parseTime = function(time) {
+    var strTime = time;
+    if(strTime > 60) {
+      strTime = Math.round(strTime/60);
+
+      if(strTime === 1){
+        strTime += ' hour';
+      } else {
+        strTime += ' hours';
+      };
+    } else if (strTime > 1440) {
+      strTime = Math.round(strTime/60/24);
+      if(strTime === 1) {
+        strTime += ' day';
+      } else {
+        strTime += ' days';
+      };
+    };
+    console.log(strTime);
+    return strTime;
   };
 
   this.loadData = function() {
@@ -20,7 +42,7 @@ $(document).ready(function() {
       var jsonData = data;
       var status = jsonData['door']['status'];
       // Status Refresh all 5 minutes. If the status refresh is older than 5 minutes, there is a connection problem.
-      if(parseTime(jsonData['door']['last_update']) > 6) {
+      if(parseTimeDiffrence(jsonData['door']['last_update']) > 6) {
         status = '-1';
       }
       if(status === '0') {
@@ -35,7 +57,9 @@ $(document).ready(function() {
       } else {
         $("#status").html("There is a connection Problem");
       };
-      $('#time').html("Last status change " + parseTime(jsonData['door']['last_change']) + " Minutes ago.");
+      var time = parseTimeDiffrence(jsonData['door']['last_change']);
+      time = parseTime(time);
+      $('#time').html("Last status change " + time + " ago.");
     });
   };
   this.loadData();
