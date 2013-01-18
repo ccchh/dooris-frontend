@@ -1,6 +1,11 @@
 $(document).ready(function() {
 
-  // Check if code runs on dev machine or production environment to enable custom json for testing
+  /*
+  Checks if code runs on dev machine or production environment to enable custom json for testing
+  If you're running this code on localhost and experience unexpected behavior (status/times won't fit)
+  please check json.php for override settings!
+  */
+
   var checkEnv = function () {
     var pathname = window.location['host'];
     if (pathname.toLowerCase().indexOf("localhost") >= 0) {
