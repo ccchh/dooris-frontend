@@ -1,5 +1,19 @@
 $(document).ready(function() {
 
+  // Check if code runs on dev machine or production environment to enable custom json for testing
+  var checkEnv = function () {
+    var pathname = window.location['host'];
+    if (pathname.toLowerCase().indexOf("localhost") >= 0) {
+      pathname = "json.php";
+      console.log('Localhost!');
+    } else {
+      pathname = "dooris.json";
+    };
+    return pathname;
+  };
+  var pathname = checkEnv();
+
+  // Returns diffrence between input timestamp and current time in minutes
   var parseTimeDiffrence = function (time) {
     var timeRec = time * 1000;
     var timeNow = $.now();
@@ -7,6 +21,7 @@ $(document).ready(function() {
     return timeGoneBy;
   };
 
+  // Returns human readable string for input in minutes
   var parseTime = function(time) {
     var strTime = time;
     if(strTime > 60) {
@@ -29,14 +44,6 @@ $(document).ready(function() {
   };
 
   this.loadData = function() {
-    // Determine if code runs on local machine
-    var pathname = window.location['host'];
-    if (pathname.toLowerCase().indexOf("localhost") >= 0) {
-      pathname = "json.php";
-      console.log('Localhost!');
-    } else {
-      pathname = "dooris.json";
-    };
     $.getJSON(pathname, function(data) {
       var jsonData = data;
       var status = jsonData['door']['status'];
