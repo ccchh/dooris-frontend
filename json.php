@@ -18,7 +18,7 @@
     date_default_timezone_set('CET');
     $date = date_create();
     $date = date_timestamp_get($date);
-    echo('{"router": {"dhcp": "1", "last_change": "1358463839", "last_update": "'. $date .'"}, "door": {"status": "0", "last_change": "1358460719", "last_update": "'. $date .'"}, "apiversion": 1}');
+    echo('{"router": {"dhcp": "1", "last_change": "1358463839", "last_update": "'. $date .'"}, "door": {"status": "1", "last_change": "1358460719", "last_update": "'. $date .'"}, "apiversion": 1}');
   }
 
 
