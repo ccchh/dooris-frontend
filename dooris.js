@@ -21,7 +21,6 @@ $(document).ready(function() {
   // Returns human readable string for input in minutes, hours or days
   var parseTime = function(time) {
     var strTime = time;
-    console.log(strTime);
     if(strTime < 60) {
       if(strTime === 1) {
         strTime += ' minute';
