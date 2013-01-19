@@ -6,6 +6,10 @@ $(document).ready(function() {
   please check json.php for override settings!
   */
 
+  var checkJSON = function(){
+  };
+
+  checkJSON();
   var checkEnv = function () {
     var pathname = window.location['host'];
     if (pathname.toLowerCase().indexOf("localhost") >= 0) {
