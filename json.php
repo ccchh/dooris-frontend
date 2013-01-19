@@ -1,5 +1,5 @@
 <?php
-  $local = 1;
+  $local = 0;
 
   // Don't fetch any Data if in Dev mode but execute custom json.
   if ($local != 1) {
