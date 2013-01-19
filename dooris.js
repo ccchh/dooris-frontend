@@ -63,6 +63,8 @@ $(document).ready(function() {
       var jsonData = data;
       var statusDiv = $('#status');
       var status = jsonData['door']['status'];
+      var dhcp = jsonData['router']['dhcp'];
+      var dhcp = dhcp - 1; //Need to remove the Freifunk Router.
       // Status Refresh all 5 minutes. If the status refresh is older than 5 minutes, there is a connection problem.
       if(parseTimeDiffrence(jsonData['door']['last_update']) > 6) {
         status = '-1';
@@ -71,10 +73,9 @@ $(document).ready(function() {
         clearClasses(statusDiv);
         statusDiv.html("Please come in, we're open!").addClass('open');
       } else if (status ==='1') {
-        // One client is the Freifunk-Router, so the minimum is greater 0.
-        if (jsonData['router']['dhcp'] > 1) {
+        if (dhcp > 0) {
           clearClasses(statusDiv);
-          statusDiv.html("There are " + jsonData['router']['dhcp'] + " DHCP Clients online, but the door is closed.").addClass('dhcp');
+          statusDiv.html("There are " + dhcp + " DHCP Clients online, but the door is closed.").addClass('dhcp');
         } else {
           clearClasses(statusDiv);
           statusDiv.html("Sorry, we're closed.").addClass('closed');

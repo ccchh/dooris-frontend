@@ -120,7 +120,7 @@ a {
 @media screen and (max-width: 850px) {
     #status {
         font-size: 2em;
-        margin: auto;
+        margin: 0px;
         float: none;
         display: block;
     }
@@ -130,6 +130,7 @@ a {
     }
     #content {
         float: none;
+        max-width: 100%;
     }
     #further {
         font-size: 1em;
