@@ -89,5 +89,5 @@ $(document).ready(function() {
     });
   };
   this.loadData();
-  setInterval(this.loadData, 1000);
+  setInterval(this.loadData, 30*1000);
 });
