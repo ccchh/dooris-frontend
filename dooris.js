@@ -52,6 +52,12 @@ $(document).ready(function() {
     return Math.round(((timeNow - timeRec)/1000)/60);
   };
 
+  var clearClasses = function (obj) {
+    obj.removeClass('open');
+    obj.removeClass('dhcp');
+    obj.removeClass('closed');
+  }
+
   this.loadData = function() {
     $.getJSON(pathname, function(data) {
       var jsonData = data;
@@ -62,16 +68,20 @@ $(document).ready(function() {
         status = '-1';
       }
       if(status === '0') {
+        clearClasses(statusDiv);
         statusDiv.html("Please come in, we're open!").addClass('open');
       } else if (status ==='1') {
         // One client is the Freifunk-Router, so the minimum is greater 0.
         if (jsonData['router']['dhcp'] > 1) {
+          clearClasses(statusDiv);
           statusDiv.html("There are " + jsonData['router']['dhcp'] + " DHCP Clients online, but the door is closed.").addClass('dhcp');
         } else {
+          clearClasses(statusDiv);
           statusDiv.html("Sorry, we're closed.").addClass('closed');
         };
       } else {
-        statusDiv.html("There is a connection Problem");
+        clearClasses(statusDiv);
+        statusDiv.html("There is a connection Problem").addClass('closed');
       };
       var time = parseTimeDiffrence(jsonData['door']['last_change']);
       time = parseTime(time);
@@ -79,5 +89,5 @@ $(document).ready(function() {
     });
   };
   this.loadData();
-  setInterval(this.loadData, 30*1000);
+  setInterval(this.loadData, 1000);
 });

@@ -18,7 +18,6 @@ a {
 }
 
 #status {
-    font-size: 7em;
     font-weight: bolder;
     margin-top: 9%;
     margin-left: 5%;
@@ -51,28 +50,37 @@ a {
 
 .closed {
     color: rgb(224, 91, 94);
+    font-size: 7em;
 }
 
 .open {
     color: rgb(134, 200, 128);
+    font-size: 7em;
 }
 
 /* TODO Fix font size for display DHCP Clients. */
 .dhcp {
     color: #ffbb55;
+    font-size: 5em;
 }
 
 
 @media screen and (max-width: 1155px) {
     #status {
-        font-size: 7em;
         max-width: 600px;
+    }
+
+    .open, .closed {
+        font-size: 7em;
+    }
+
+    .dhcp {
+        font-size: 5em;
     }
 }
 
 @media screen and (max-width: 1090px) {
     #status {
-        font-size: 7em;
         max-width: 490px;
     }
     #aside {
@@ -80,17 +88,32 @@ a {
         float: right;
         margin-top: 100px;
     }
+    
+    .open, .closed {
+        font-size: 7em;
+    }
+
+    .dhcp {
+        font-size: 4em;
+    }
 }
 
 @media screen and (max-width: 1000px) {
     #status {
-        font-size: 5em;
         max-width: 350px;
     }
     #aside {
         margin-right: 30px;
         float: right;
         margin-top: 100px;
+    }
+
+    .open, .closed {
+        font-size: 5em;
+    }
+
+    .dhcp {
+        font-size: 3em;
     }
 }
 
