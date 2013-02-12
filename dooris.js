@@ -1,15 +1,17 @@
 $(document).ready(function() {
-
   /*
   Checks if code runs on dev machine or production environment to enable custom json for testing
   If you're running this code on localhost and experience unexpected behavior (status/times won't fit)
   please check json.php for override settings!
   */
 
+  $('h1').text('Anderer Text');
+
   var checkJSON = function(){
   };
 
   checkJSON();
+
   var checkEnv = function () {
     var pathname = window.location['host'];
     if (pathname.toLowerCase().indexOf("localhost") >= 0) {
@@ -17,7 +19,7 @@ $(document).ready(function() {
       console.log('Localhost!');
     } else {
       pathname = "dooris.json";
-    };
+    }
     return pathname;
   };
   var pathname = checkEnv();
@@ -59,7 +61,7 @@ $(document).ready(function() {
     obj.removeClass('open');
     obj.removeClass('dhcp');
     obj.removeClass('closed');
-  }
+  };
 
   this.loadData = function() {
     $.getJSON(pathname, function(data) {
@@ -67,7 +69,7 @@ $(document).ready(function() {
       var statusDiv = $('#status');
       var status = jsonData['door']['status'];
       var dhcp = jsonData['router']['dhcp'];
-      var dhcp = dhcp - 1; //Need to remove the Freifunk Router.
+      dhcp = dhcp - 1; //Need to remove the Freifunk Router.
       // Status Refresh all 5 minutes. If the status refresh is older than 5 minutes, there is a connection problem.
       if(parseTimeDiffrence(jsonData['door']['last_update']) > 6) {
         status = '-1';
@@ -82,11 +84,11 @@ $(document).ready(function() {
         } else {
           clearClasses(statusDiv);
           statusDiv.html("Sorry, we're closed.").addClass('closed');
-        };
+        }
       } else {
         clearClasses(statusDiv);
         statusDiv.html("There is a connection Problem").addClass('closed');
-      };
+      }
       var time = parseTimeDiffrence(jsonData['door']['last_change']);
       time = parseTime(time);
       $('#time').html("Last status change " + time + " ago.");
