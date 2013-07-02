@@ -1,17 +1,16 @@
 $(document).ready(function() {
-  /*
-  Checks if code runs on dev machine or production environment to enable custom json for testing
-  If you're running this code on localhost and experience unexpected behavior (status/times won't fit)
-  please check json.php for override settings!
-  */
-
-  $('h1').text('Anderer Text');
 
   var checkJSON = function(){
   };
 
   checkJSON();
 
+  
+  /**
+   * Checks wether you are developing on localhost or run this JS in a production environment to determine wich JSON to
+   * @uses [window.location]
+   * @return string relative path to JSON.
+   */
   var checkEnv = function () {
     var pathname = window.location['host'];
     if (pathname.toLowerCase().indexOf("localhost") >= 0) {
@@ -25,6 +24,14 @@ $(document).ready(function() {
   var pathname = checkEnv();
 
   // Returns human readable string for input in minutes, hours or days
+  /**
+   * Returns time in minutes/hours instead of seconds
+   * @param  {int} time in seconds
+   * @return {string} Date in human redable form
+   * pre: time >= 0
+   * post: returns string
+   * Int -> String
+   */
   var parseTime = function(time) {
     var strTime = time;
     if(strTime < 60) {
@@ -50,13 +57,22 @@ $(document).ready(function() {
     return strTime;
   };
 
-  // Returns diffrence between input timestamp and current time in minutes
+  /**
+   * Returns the diffrence of time between input time and the current time.
+   * @param  {int} time timestamp
+   * @return {int}      timedifference in minutes
+   */
   var parseTimeDiffrence = function (time) {
     var timeRec = time * 1000;
     var timeNow = $.now();
     return Math.round(((timeNow - timeRec)/1000)/60);
   };
 
+  /**
+   * Removes all classes from jQuery Object
+   * @param  {jQuery Object} obj
+   * @return {nil}
+   */
   var clearClasses = function (obj) {
     obj.removeClass('open');
     obj.removeClass('dhcp');
