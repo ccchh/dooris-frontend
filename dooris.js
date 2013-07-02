@@ -5,7 +5,6 @@ $(document).ready(function() {
 
   checkJSON();
 
-  
   /**
    * Checks wether you are developing on localhost or run this JS in a production environment to determine wich JSON to
    * @uses [window.location]
@@ -85,7 +84,7 @@ $(document).ready(function() {
       var statusDiv = $('#status');
       var status = jsonData['door']['status'];
       var dhcp = jsonData['router']['dhcp'];
-      dhcp = dhcp - 1; //Need to remove the Freifunk Router.
+      dhcp = dhcp - 2; //Need to remove the Freifunk Router.
       // Status Refresh all 5 minutes. If the status refresh is older than 5 minutes, there is a connection problem.
       if(parseTimeDiffrence(jsonData['door']['last_update']) > 6) {
         status = '-1';
